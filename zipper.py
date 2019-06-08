@@ -1,26 +1,37 @@
 #!/usr/bin/python3
 
-import shutil, sys
+import shutil
+import sys
 from zipfile import PyZipFile
 
 
+# TODO filenotfound, more than zip
 def unzip():
     for compressed in sys.argv[2:]:
-        PyZipFile(compressed).extractall()
+        if FileNotFoundError:
+            print('No file or folder named: ' + compressed)
+        else:
+            PyZipFile(compressed).extractall()
 
 
 def zip():
-    for folder in sys.argv[2:]:
-        shutil.make_archive(folder, 'zip', root_dir=None, base_dir=folder)
+    for name in sys.argv[2:]:
+        if FileNotFoundError:
+            print('No file or folder named: ' + name)
+        else:
+            shutil.make_archive(name, 'zip', root_dir=None, base_dir=name)
 
 
 try:
+    # if len(sys.argv) <= 2:
+    #     print('Zipper by Jay version 1.0')
+    #     print('/usr/bin/zipper')
+    #     print('Usage: zipper [zip|unzip] [file|folder]')
+    # else:
     if sys.argv[1] == 'zip':
         zip()
     elif sys.argv[1] == 'unzip':
         unzip()
-except Exception as e:
-    print('Zipper by Jay version 1.0')
-    print('/usr/bin/zipper')
-    print(e)
+except Exception:
+
 
