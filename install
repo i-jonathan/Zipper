@@ -11,7 +11,7 @@ read -p "Proceed(y/n): " pro
 if [ "$pro" = "y" ]; then
     echo "Yaayy. New host to consume. Hehehe"
     echo "Just Kiding"
-    sudo cp zipper.py /usr/local/bin
+    sudo cp zipper.py /usr/local/bin/zipper
     echo "Welcome to Zipper"
 else
     echo "Oh well... I tried"
