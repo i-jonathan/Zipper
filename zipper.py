@@ -2,6 +2,7 @@
 
 import shutil
 import sys
+import os
 from zipfile import PyZipFile
 
 formats = list(i[0] for i in shutil.get_archive_formats())
@@ -23,11 +24,23 @@ def compress():
     else:
         archive = formats[form.index(sys.argv[2])]
         for name in sys.argv[3:]:
+            if name.endswith('/'):
+                name = name[:-1]
+                print(name)
+                print(name.rfind('/'))
+                root = name[:name.rfind('/')] + '/'
+                print(root)
+            else:
+                print(name)
+                print(name.rfind('/'))
+                root = name[:name.rfind('/')] + '/'
+                print(root)
+            # shutil.make_archive(os.path.basename(name), str(archive), root, os.path.basename(name))
             if FileNotFoundError:
                 print(sys.argv)
                 print('No file or folder named: ' + name)
             else:
-                shutil.make_archive(name, str(archive), root_dir=None, base_dir=name)
+                shutil.make_archive(os.path.basename(name), str(archive), root, os.path.basename(name))
 
 
 try:
