@@ -29,15 +29,16 @@ def compress():
                 root = name[:name.rfind('/')] + '/'
             else:
                 root = name[:name.rfind('/')] + '/'
+            basename = os.path.basename(name)
             if os.path.exists(name):
-                shutil.make_archive(os.path.basename(name), str(archive), root, os.path.basename(name))
+                shutil.make_archive(os.path.join(os.getcwd(), basename), str(archive), root, basename)
             else:
                 print('No File or Folder named: ' + os.path.basename(name))
  
 
 try:
     if len(sys.argv) <= 3:
-        print('Zipper by Jay version 1.0')
+        print('Zipper by Jonathan Farinloye version 1.4')
         print('/usr/bin/zipper')
         print('Usage: zipper [zip|unzip] ' + str(form[0:]).replace('\'', '').replace(', ', '|') + ' [file|folder]')
         for i in range(len(form)):
