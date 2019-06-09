@@ -42,13 +42,13 @@ def compress():
 
 try:
     if len(sys.argv) <= 3:
-        print('Zipper by Jonathan Farinloye version 1.4')
-        print('/usr/bin/zipper')
+        print('Zipper by Jonathan Farinloye version 2.0')
+        print(sys.path[0] + '/zipper')
         print('Usage: zipper [up|down] ' + str(form[0:]).replace('\'', '').replace(', ', '|') + ' [file|folder]')
+        print('up     -  Compress a file or directory')
+        print('down   -  Extract the contents of a compressed folder')
         for i in range(len(form)):
             print('    ' + form[i] + '  -  ' + formats[i])
-        print('up   -   Compress a file or directory')
-        print('down -   Extract the contents of a compressed folder')
     else:
         if sys.argv[1] == 'up':
             compress()

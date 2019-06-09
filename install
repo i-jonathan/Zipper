@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Zipper by Jonathan Farinloye. (Do not change this name)"
+echo " By installing this piece of orange, I agree to: "
+echo "   1. Call Pizza Hut and ask for the phone number of Domino's."
+echo "   2. Write 'Sorry about the damage on your car' and put it on a random car."
+echo "   3. Buy a donut and complain that there’s a hole in it."
+echo "   4. Get in a crowded elevator and say “I’m sure you’re wondering why I’ve gathered you all here."
+
+read -p "Proceed(y/n): " pro
+if [ "$pro" = "y" ]; then
+    echo "Yaayy. New host to consume. Hehehe"
+    echo "Just Kiding"
+    sudo cp zipper.py /usr/local/bin
+    echo "Welcome to Zipper"
+else
+    echo "Oh well... I tried"
+fi
