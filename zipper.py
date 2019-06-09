@@ -26,22 +26,14 @@ def compress():
         for name in sys.argv[3:]:
             if name.endswith('/'):
                 name = name[:-1]
-                print(name)
-                print(name.rfind('/'))
                 root = name[:name.rfind('/')] + '/'
-                print(root)
             else:
-                print(name)
-                print(name.rfind('/'))
                 root = name[:name.rfind('/')] + '/'
-                print(root)
-            # shutil.make_archive(os.path.basename(name), str(archive), root, os.path.basename(name))
-            if FileNotFoundError:
-                print(sys.argv)
-                print('No file or folder named: ' + name)
-            else:
+            if os.path.exists(name):
                 shutil.make_archive(os.path.basename(name), str(archive), root, os.path.basename(name))
-
+            else:
+                print('No File or Folder named: ' + os.path.basename(name))
+ 
 
 try:
     if len(sys.argv) <= 3:
@@ -59,3 +51,4 @@ except Exception as e:
     print(e)
     
     
+
