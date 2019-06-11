@@ -41,7 +41,7 @@ def compress():
 
 try:
     if len(sys.argv) <= 3:
-        print('Zipper by Jonathan Farinloye version 2.0')
+        print('Zipper by Jonathan Farinloye version 2.1.0')
         print(os.system('which zipper'))
         print('Usage: zipper [up|down] ' + str(form[0:]).replace('\'', '').replace(', ', '|') + ' [file|folder]')
         print('up     -  Compress a file or directory')

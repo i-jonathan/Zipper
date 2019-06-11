@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Zipper by Jonathan Farinloye. (Do not change this name)"
+echo "Zipper by Jonathan Farinloye."
 echo " By installing this piece of orange, I agree to: "
 echo "   1. Call Pizza Hut and ask for the phone number of Domino's."
 echo "   2. Write 'Sorry about the damage on your car' and put it on a random car."
