@@ -3,12 +3,9 @@
 import shutil
 import sys
 import os
-import zipfile
-import tarfile
 
 formats = list(i[0] for i in shutil.get_archive_formats())
 form = list(i[0] for i in formats)
-# TODO more than zip
 
 
 def unzip():
@@ -30,12 +27,14 @@ def compress():
         for name in sys.argv[3:]:
             if name.endswith('/'):
                 name = name[:-1]
-                root = name[:name.rfind('/')] + '/'
+                splitter = os.path.split(name)
             else:
-                root = name[:name.rfind('/')] + '/'
-            basename = os.path.basename(name)
+                splitter = os.path.split(name)
+            root = splitter[0]
+            if root == '':
+                root = None
             if os.path.exists(name):
-                shutil.make_archive(os.path.join(os.getcwd(), basename), str(archive), root, basename)
+                shutil.make_archive(os.path.join(os.getcwd(), splitter[1]), str(archive), root, splitter[1])
             else:
                 print('No File or Folder named: ' + os.path.basename(name))
  
